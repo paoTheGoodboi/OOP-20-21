@@ -1,4 +1,5 @@
 # OOP-20-21
+# Pavol Lukáč
 STU FEI 
 LS 2020/2021
 OOP
