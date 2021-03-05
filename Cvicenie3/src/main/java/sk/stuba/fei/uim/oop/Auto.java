@@ -9,6 +9,7 @@ public class Auto {
 
     public Auto() {
         nove = true;
+        kapacitaNadrze = 100;
     }
 
     public void drive(double vzdialenost){
@@ -30,13 +31,16 @@ public class Auto {
         return vysledok;
     }
 
+    public double dotankovat() {
+        double rozdiel = kapacitaNadrze - stavNadrze;
+        stavNadrze = kapacitaNadrze;
+        return rozdiel;
+    }
+
     public double getStavNadrze() {
         return stavNadrze;
     }
 
-    public void setStavNadrze(double stavNadrze) {
-        this.stavNadrze = stavNadrze;
-    }
 
     public boolean isNove() {
         return nove;
