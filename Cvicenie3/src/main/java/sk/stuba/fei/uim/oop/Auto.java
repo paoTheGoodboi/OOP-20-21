@@ -7,9 +7,9 @@ public class Auto {
     private double stavNadrze;
     private boolean nove;
 
-    public Auto() {
+    public Auto(double kapacitaNadrze) {
         nove = true;
-        kapacitaNadrze = 100;
+        this.kapacitaNadrze = kapacitaNadrze;
     }
 
     public void drive(double vzdialenost){

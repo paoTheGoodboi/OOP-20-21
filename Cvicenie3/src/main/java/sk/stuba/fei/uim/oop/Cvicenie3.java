@@ -2,7 +2,7 @@ package sk.stuba.fei.uim.oop;
 
 public class Cvicenie3 {
     public static void main(String[]args) {
-        Auto skoda = new Auto();
+        Auto skoda = new Auto(80);
 
         System.out.println("Dotankoval som: " + skoda.dotankovat());
         System.out.println(skoda.stavAuta());
