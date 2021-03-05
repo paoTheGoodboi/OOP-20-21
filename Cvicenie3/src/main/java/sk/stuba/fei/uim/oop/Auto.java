@@ -12,6 +12,11 @@ public class Auto {
         this.kapacitaNadrze = kapacitaNadrze;
     }
 
+    public Auto() {
+        nove = true;
+        this.kapacitaNadrze = 100;
+    }
+
     public void drive(double vzdialenost){
         nove = false;
         stavNadrze -= vzdialenost * SPOTREBA;

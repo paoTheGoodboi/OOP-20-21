@@ -3,20 +3,29 @@ package sk.stuba.fei.uim.oop;
 public class Cvicenie3 {
     public static void main(String[]args) {
         Auto skoda = new Auto(80);
+        Auto bmw = new Auto();
 
-        System.out.println("Dotankoval som: " + skoda.dotankovat());
-        System.out.println(skoda.stavAuta());
+        System.out.println("Skoda ------------");
+        testAuto(skoda);
 
-        skoda.drive(100);
+        System.out.println("BMW ------------");
+        testAuto(bmw);
+    }
 
-        System.out.println(skoda.getStavNadrze());
-        System.out.println("Dotankoval som: " + skoda.dotankovat());
-        System.out.println(skoda.stavAuta());
+    public static void testAuto(Auto auto) {
+        System.out.println("Dotankoval som: " + auto.dotankovat());
+        System.out.println(auto.stavAuta());
 
-        skoda.drive(100);
+        auto.drive(100);
 
-        System.out.println(skoda.getStavNadrze());
-        System.out.println(skoda.stavAuta());
+        System.out.println(auto.getStavNadrze());
+        System.out.println("Dotankoval som: " + auto.dotankovat());
+        System.out.println(auto.stavAuta());
+
+        auto.drive(100);
+
+        System.out.println(auto.getStavNadrze());
+        System.out.println(auto.stavAuta());
 
     }
 
