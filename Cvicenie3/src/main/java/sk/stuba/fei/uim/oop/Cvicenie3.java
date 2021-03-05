@@ -5,6 +5,7 @@ public class Cvicenie3 {
         Auto skoda = new Auto();
 
         skoda.setStavNadrze(100);
+        System.out.println(skoda.stavAuta());
 
         skoda.drive(100);
 
@@ -13,6 +14,7 @@ public class Cvicenie3 {
         skoda.drive(100);
 
         System.out.println(skoda.getStavNadrze());
+        System.out.println(skoda.stavAuta());
 
     }
 
