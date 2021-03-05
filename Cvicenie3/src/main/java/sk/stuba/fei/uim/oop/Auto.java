@@ -8,14 +8,14 @@ public class Auto {
     private boolean nove;
 
     public Auto(double kapacitaNadrze) {
-        nove = true;
+        this.nove = true;
         this.kapacitaNadrze = kapacitaNadrze;
     }
 
     public Auto() {
-        nove = true;
-        this.kapacitaNadrze = 100;
+        this(100);
     }
+
 
     public void drive(double vzdialenost){
         nove = false;
