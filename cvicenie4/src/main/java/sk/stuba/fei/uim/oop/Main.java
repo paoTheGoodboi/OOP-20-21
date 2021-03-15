@@ -18,6 +18,8 @@ public class Main {
         contact.setFriends(contact2,contac3,contact4);
 
         contac3.setFirstName("Kovy");
+
+        contact.getFriends()[0].setFirstName("Gabo");
     }
 
 

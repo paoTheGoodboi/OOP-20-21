@@ -18,6 +18,11 @@ public class Contact {
         surname = parts[1];
     }
 
+    public Contact(Contact other) {
+        this.firstName = other.firstName;
+        this.surname = other.surname;
+    }
+
     public static Contact parseFromFullName(String fullName) {
         return new Contact(fullName);
     }
@@ -32,5 +37,13 @@ public class Contact {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public Contact[] getFriends() {
+        var friendsClone = new Contact[this.friends.length];
+        for(int i = 0; i< this.friends.length; i++) {
+            friendsClone[1] = new Contact(this.friends[1]);
+        }
+        return friends;
     }
 }
