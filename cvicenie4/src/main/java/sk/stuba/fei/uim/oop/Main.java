@@ -25,6 +25,12 @@ public class Main {
             System.out.println(prvok.getZnamy());
         }
 
+        var iterator = zoznam.iterator();
+        while(iterator.hasNext()) {
+            var prvok = iterator.next();
+            System.out.println(prvok.getZnamy());
+        }
+
 
 
 
