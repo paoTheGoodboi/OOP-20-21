@@ -11,7 +11,7 @@ public class Main {
         System.out.println(absolvent.akoText());
         System.out.println(absolvent.akoTextSTitulom());
 
-
+        System.out.println(absolvent);
 
 
         Contact contact = new Contact("Pavol","Lukac");
