@@ -17,7 +17,13 @@ public class Main {
 
         var zoznam2 = new ArrayList<Znamy>();
 
+        for(int i = 0; i < zoznam.size(); i++) {
+            System.out.println(zoznam.get(i).getZnamy());
+        }
 
+        for(Znamy prvok : zoznam) {
+            System.out.println(prvok.getZnamy());
+        }
 
 
 
