@@ -1,6 +1,6 @@
 package sk.stuba.fei.uim.oop;
 
-public abstract class Contact {
+public abstract class Contact implements Znamy {
 
     private String firstName;
     private String surname;
