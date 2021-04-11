@@ -19,11 +19,14 @@ public class Main {
         panel.add(label);
 
         var panel2 = new JPanel();
-        panel2.setLayout(new GridLayout(2,2));
+        panel2.setLayout(new BorderLayout());
 
-        for(int i = 0;  i < 4; i++) {
-            panel2.add(new JLabel("" + i));
-        }
+        panel2.add(new JLabel("north"), "North");
+        panel2.add(new JLabel("south"), "South");
+        panel2.add(new JLabel("west"), "West");
+        panel2.add(new JLabel("east"), "East");
+        panel2.add(new JLabel("center"), "Center");
+
 
         for(int i = 0; i < 10; i++) {
             if(i == 8) {
