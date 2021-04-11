@@ -11,6 +11,7 @@ public class Main {
 
         var panel = new JPanel();
         okno.add(panel);
+        panel.setBackground(Color.GREEN);
 
         var paneLayout = new GridLayout(5,4);
         panel.setLayout(paneLayout);
