@@ -5,9 +5,15 @@ import java.awt.image.BufferedImage;
 
 public class MyCanvas extends Canvas {
 
-    @Override
-    public void paint(Graphics g) {
-        var image = new BufferedImage(300,300, BufferedImage.TYPE_INT_BGR);
+    private boolean imageWasDrawn;
+
+    private Image image;
+
+    public MyCanvas() {
+        super();
+
+        this.imageWasDrawn = false;
+        this.image = new BufferedImage(300,300, BufferedImage.TYPE_INT_BGR);
         var ramGraphics = image.getGraphics();
 
         ramGraphics.setColor(Color.GRAY);
@@ -21,6 +27,13 @@ public class MyCanvas extends Canvas {
                 ramGraphics.fillRect(110 + 45 * i, 160 + 45 * j, 35, 35);
             }
         }
-        g.drawImage(image,0,0,null);
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        if (!this.imageWasDrawn) {
+            g.drawImage(image,0,0,null);
+            this.imageWasDrawn = true;
+        }
     }
 }
