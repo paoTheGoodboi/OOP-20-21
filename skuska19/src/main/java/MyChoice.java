@@ -4,16 +4,18 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class MyChoice extends Choice implements ItemListener {
-    Color color;
-    JLabel colorLabel;
+    protected Color color;
+    protected JLabel colorLabel;
+    protected MyJPanel myJPanel;
 
-    public MyChoice(JLabel colorLabel) {
+    public MyChoice(MyJPanel myJPanel) {
         this.add("Cierna");
         this.add("Cervena");
         this.add("Modra");
+        this.myJPanel = myJPanel;
         color = Color.BLACK;
         this.addItemListener(this);
-        this.colorLabel = colorLabel;
+        this.colorLabel = myJPanel.colorLabel;
     }
 
     @Override
@@ -27,6 +29,12 @@ public class MyChoice extends Choice implements ItemListener {
         }else if(e.getItem() == "Modra") {
             this.color = Color.BLUE;
         }
+
+        if(myJPanel.mouseAdapter.selected && myJPanel.mouseAdapter.selectedImage != null) {
+                myJPanel.mouseAdapter.selectedImage.firstColor = color;
+                myJPanel.mouseAdapter.changeColor(true);
+        }
+
         colorLabel.setForeground(color);
         colorLabel.setText((String) e.getItem());
     }

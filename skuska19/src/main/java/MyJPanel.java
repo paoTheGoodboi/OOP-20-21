@@ -8,11 +8,11 @@ public class MyJPanel extends JPanel{
     private MyJButton myJButton1;
     private MyJButton myJButton2;
     private MyJButton myJButton3;
-    private JLabel colorLabel;
+    protected JLabel colorLabel;
     @Getter
     private MyChoice colorChoice;
     private JPanel jPanel;
-    private MyMouseAdapter mouseAdapter;
+    protected MyMouseAdapter mouseAdapter;
     protected boolean linePlus;
     protected boolean choose;
     @Getter
@@ -27,7 +27,7 @@ public class MyJPanel extends JPanel{
         this.myJButton3 = new MyJButton("Zvolit", this);
         this.jPanel = new JPanel(new GridLayout(1,0));
 
-        this.colorChoice = new MyChoice(colorLabel);
+        this.colorChoice = new MyChoice(this);
         this.mouseAdapter = new MyMouseAdapter(this);
 
 

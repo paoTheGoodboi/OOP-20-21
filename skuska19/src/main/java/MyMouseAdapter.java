@@ -6,7 +6,8 @@ import java.util.ArrayList;
 
 public class MyMouseAdapter extends java.awt.event.MouseAdapter {
     private MyJPanel myJPanel;
-    private boolean selected;
+    protected boolean selected = false;
+    protected ImageAndPosition selectedImage;
     private ArrayList<ImageAndPosition> clickedImageList;
     private int counter;
     @Getter
@@ -19,16 +20,19 @@ public class MyMouseAdapter extends java.awt.event.MouseAdapter {
     @Override
     public void mouseClicked(MouseEvent e) {
         super.mouseClicked(e);
-        if(!myJPanel.choose) {
+        System.out.println("mouse clicked");
+        if(myJPanel.choose) {
             this.clickedImageList = new ArrayList<>();
             ArrayList<ImageAndPosition> imageList = myJPanel.getImageList();
             ArrayList<ImageAndPosition> clickedImageList = new ArrayList<>();
             int x = e.getX();
             int y = e.getY();
-
+            System.out.println("choose");
             for (ImageAndPosition imagePos : imageList) {
+                System.out.println("dada");
                 if (x > imagePos.x && x < imagePos.x + imagePos.image.getWidth(null) && y > imagePos.y && y < imagePos.y + imagePos.image.getHeight(null)) {
                     clickedImageList.add(imagePos);
+                    System.out.println("trafil");
                     this.selected = true;
                 }else if(clickedImageList.isEmpty()) {
                     this.selected = false;
@@ -36,9 +40,13 @@ public class MyMouseAdapter extends java.awt.event.MouseAdapter {
             }
 
             if(!clickedImageList.isEmpty()) {
-                if(counter > clickedImageList.size()) {
+                if(counter >= clickedImageList.size()) {
                     this.counter = 0;
-                }else {
+                }
+                if(counter < clickedImageList.size()) {
+                    System.out.println(counter + "  " + clickedImageList.size());
+                    this.selectedImage = clickedImageList.get(counter);
+                    changeColor(false);
                     this.counter++;
                 }
             }
@@ -49,6 +57,7 @@ public class MyMouseAdapter extends java.awt.event.MouseAdapter {
     @Override
     public void mousePressed(MouseEvent e) {
         super.mousePressed(e);
+        changeColor(true);
         this.pressed = e.getPoint();
         System.out.println("pressed " + e.getX() + " " + e.getY());
     }
@@ -82,5 +91,26 @@ public class MyMouseAdapter extends java.awt.event.MouseAdapter {
         }
 
 
+
+
+    }
+
+    protected void changeColor(Boolean firstColor) {
+        Color color;
+        if(selectedImage != null) {
+            if(firstColor) {
+                color = selectedImage.firstColor;
+            }else {
+                color = Color.YELLOW;
+            }
+            if(selectedImage.shape.equals("Plus")) {
+                DrawPlus drawPlus = new DrawPlus(selectedImage.pressed, selectedImage.released, color);
+                selectedImage.image = drawPlus.image;
+            }else {
+                DrawLine drawLine = new DrawLine(selectedImage.pressed, selectedImage.released, color);
+                selectedImage.image = drawLine.image;
+            }
+            myJPanel.repaint();
+        }
     }
 }

@@ -4,12 +4,12 @@ import java.awt.image.BufferedImage;
 public class DrawPlus extends MyImage{
 
     public DrawPlus(Point pressed, Point released, Color color) {
-        super(pressed, released, color);
+        super(pressed, released, color, "Plus");
         drawImage(pressed,released);
     }
 
     @Override
-    void drawImage(Point pointPressed, Point pointReleased) {
+    public void drawImage(Point pointPressed, Point pointReleased) {
 
         int positionX, positionY,x,y;
         x = pointReleased.x - pointPressed.x;

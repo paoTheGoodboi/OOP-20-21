@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 public class DrawLine extends MyImage{
 
     public DrawLine(Point pressed, Point released, Color color) {
-        super(pressed, released, color);
+        super(pressed, released, color,"Line");
         drawImage(pressed,released);
     }
 
